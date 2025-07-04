@@ -3,7 +3,26 @@ import React from 'react'
 const Button = ({ text, className, id}) => {
   return (
     // if className is not provided, it defaults to an empty string, and always includes 'cta-wrapper' class
-    <a className={`${className ?? ''} cta-wrapper`}>
+    <a 
+    onClick={(e) => {
+      e.preventDefault();
+
+      const target = document.getElementById('counter');
+      // only scroll to the target if it exists and id is provided
+      if (target && id) {
+        const offset = window.innerHeight * 0.15;
+
+        // how far down to scroll
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+        window.scrollTo({
+          top: top,
+          behavior: 'smooth',
+        });
+      }
+    }
+  }
+    className={`${className ?? ''} cta-wrapper`}>
         <div className="cta-button group">
             <div className="bg-circle" />
             <p className="text">{text}</p>
