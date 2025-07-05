@@ -29,7 +29,7 @@ const ShowcaseSections = () => {
                     trigger: card,
                     start: "top bottom-=100", // when the top of the card reaches the bottom of the viewport minus 100px
                     toggleActions: "play none none reverse",
-                    markers: true, // for debugging purposes
+                    //markers: true, // uncomment to see the markers for debugging
                 }
             });
     })
